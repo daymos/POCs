@@ -15,7 +15,7 @@ def f(el):
     S3_bucket = 'yieldify-aa-stream-dev'
     s3 = boto3.resource('s3')
     s3.Bucket(S3_bucket).download_file(el, 'mattia.lzo')
-    subprocess.call(['lzop', '-d', 'mattia.lzo'])
+    subprocess.call(['lzop', '-d', '-f', 'mattia.lzo'])
 
     try:
         with open('mattia', 'rb') as f:
